@@ -1,0 +1,33 @@
+package daddy;
+import java.util.*;
+import java.lang.String;
+
+public class Swap_same_length_words_Even_letters {
+	public static void main(String args[]) {
+		Scanner sc=new Scanner(System.in);
+		String s=sc.nextLine();
+		String[] wrd=s.split(" ");
+		char temp;
+		for(int i=0;i<wrd.length;i++) {
+			for(int j=i+1;j<wrd.length;j++) {
+				if(wrd[i].length()==wrd[j].length() && wrd.length!=1) {
+					char[] n=wrd[i].toCharArray();
+					char[] m=wrd[j].toCharArray();
+					for(int k=1;k<n.length;k+=2) {
+						temp=n[k];
+						n[k]=m[k];
+						m[k]=temp;
+					}
+					wrd[i]=String.copyValueOf(n);
+					wrd[j]=String.copyValueOf(m);
+					System.out.println(wrd[i]+" "+wrd[j]);
+					break;
+				}
+				
+			}
+		}
+		for(String sk:wrd) {
+			System.out.print(sk+" ");
+		}
+	}
+}
